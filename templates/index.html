@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic_Report</title>
+</head>
+<body>
+    <h1> Diabetic_Report </h1>
+
+
+    <form method="POST" action="/predict">
+        <label>Glucose</label>
+        <input type="text" name="Glucose">
+        <br>
+        <br>
+
+
+        <label>BloodPressure</label>
+        <input type="text" name="BloodPressure">
+        <br>
+        <br>
+
+        <label>SkinThickness</label>
+        <input type="text" name="SkinThickness">
+        <br>
+        <br>
+
+        <label>Insulin</label>
+        <input type="text" name="Insulin">
+        <br>
+        <br>
+
+        <label>BMI</label>
+        <input type="text" name="BMI">
+        <br>
+        <br>
+
+        <label>DiabetesPedigreeFunction</label>
+        <input type="text" name="DiabetesPedigreeFunction">
+        <br>
+        <br>
+
+        <label>Age</label>
+        <input type="text" name="Age">
+        <br>
+        <br>
+
+        <input type="submit" value="PREDICT">
+
+       
+    </form>
+    <!-- {% if prediction %}
+
+    <h3> {{prediction}} </h3>
+
+    {% endif %} -->
+
+    <h3>The patient has  {{prediction}} </h3>
+
+</body>
+</html>
