@@ -1,5 +1,7 @@
 import numpy as np
 import pickle
+import config
+
 
 class DiabeticInfo():
     def __init__(self,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age):
@@ -12,7 +14,7 @@ class DiabeticInfo():
         self.Age = Age
 
     def load_data(self):
-        with open('logistic_clf.pkl','rb') as f:
+        with open(config.MODEL_FILE_PATH,'rb') as f:
             self.model = pickle.load(f)
 
     def diabetic_pred(self):
