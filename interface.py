@@ -1,7 +1,9 @@
 from flask import Flask,request,render_template
 from utils import DiabeticInfo
+import config
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def home():
@@ -34,4 +36,4 @@ def diabetes():
         
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0',port = 8080)
+    app.run(host= '0.0.0.0',port = config.PORT_NUMBER)
