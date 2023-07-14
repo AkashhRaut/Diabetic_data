@@ -15,7 +15,7 @@ def diabetes():
         data = request.form
         print('Data:',data)
 
-        Glucose                  = data['Glucose']
+        Glucose                  = data['Glucose'] 
         BloodPressure            = data['BloodPressure']
         SkinThickness            = data['SkinThickness']
         Insulin                  = data['Insulin']
@@ -27,10 +27,10 @@ def diabetes():
         pred = Obj.diabetic_pred()
 
         if pred == 0:
-             result = 'not diabetic'
+             result = 'Patient is not diabetic'
 
         else:
-             result = 'diabetic'
+             result = 'Patient is diabetic'
 
         return render_template('index.html',prediction=result)
         

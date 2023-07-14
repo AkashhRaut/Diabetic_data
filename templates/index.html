@@ -7,7 +7,19 @@
     <title>Diabetic_Report</title>
 </head>
 <body>
-    <h1> Diabetic_Report </h1>
+    <style>
+        body {
+          background-image: url('https://images.unsplash.com/photo-1624454002429-40ed87a5ec04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+        </style>
+        
+
+    <div class="intro">
+    <h1>Diabetic_Report</h1>
+</div>
 
 
     <form method="POST" action="/predict">
@@ -51,13 +63,9 @@
 
        
     </form>
-    <!-- {% if prediction %}
+    
 
-    <h3> {{prediction}} </h3>
-
-    {% endif %} -->
-
-    <h3>The patient is {{prediction}} </h3>
+    <h3>{{prediction}} </h3>
 
 </body>
 </html>
