@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template
 from utils import DiabeticInfo
 import config
+import numpy as np
 
 app = Flask(__name__)
 
@@ -11,28 +12,34 @@ def home():
 
 @app.route('/predict',methods = ['POST'])
 def diabetes():
+        
+        try:
+              
+               data = request.form
+               print('Data:',data)
 
-        data = request.form
-        print('Data:',data)
+               Glucose                  = data['Glucose'] 
+               BloodPressure            = data['BloodPressure']
+               SkinThickness            = data['SkinThickness']
+               Insulin                  = data['Insulin']
+               BMI                      = data['BMI']
+               DiabetesPedigreeFunction = data['DiabetesPedigreeFunction']
+               Age                      = data['Age']
 
-        Glucose                  = data['Glucose'] 
-        BloodPressure            = data['BloodPressure']
-        SkinThickness            = data['SkinThickness']
-        Insulin                  = data['Insulin']
-        BMI                      = data['BMI']
-        DiabetesPedigreeFunction = data['DiabetesPedigreeFunction']
-        Age                      = data['Age']
+               Obj = DiabeticInfo(Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)
+               pred = Obj.diabetic_pred()
 
-        Obj = DiabeticInfo(Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age)
-        pred = Obj.diabetic_pred()
+               if pred == 0:
+                         result = 'Patient is not diabetic'
+               else :
+                         result = 'Patient is diabetic'
 
-        if pred == 0:
-             result = 'Patient is not diabetic'
+               return render_template('index.html',prediction=result)
+        
 
-        else:
-             result = 'Patient is diabetic'
-
-        return render_template('index.html',prediction=result)
+        
+        except:
+               return render_template('index.html',prediction='Fill Proper Inputs')
         
 
 if __name__ == '__main__':
